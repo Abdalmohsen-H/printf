@@ -31,7 +31,8 @@ str = va_arg(args, char *);/* save it to a variable to write it next*/
 count += write(1, str, strlen(str)); /*Write string to standard output*/
 break;
 case '%':  /* '%' specifier */
-count += write(1, "%", 1);  /* Write '%' char to standard output */
+va_arg(args, int);
+count += write(1, "%", 1); /*Write char to standard output*/
 break;
 default:  /* Invalid specifier */
 count += write(1, "%", 1);  /* Write '%' chara to standard output */
