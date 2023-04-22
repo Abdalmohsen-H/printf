@@ -13,6 +13,7 @@ int _printf(const char *format, ...)
 int idx = 0, count = 0;
 va_list args;  /* Declare variable arguments list */
 char c;
+char *str;
 va_start(args, format); /*Initialize variable arguments*/
 while (format && format[idx])  /* Loop via each character in format*/
 {
@@ -26,7 +27,7 @@ c = va_arg(args, int);/* must save it to a variable to get address next*/
 count += write(1, &c, 1); /*Write char to standard output*/
 break;
 case 's':  /* String specifier */
-char *str = va_arg(args, char *);/* save it to a variable to write it next*/
+str = va_arg(args, char *);/* save it to a variable to write it next*/
 count += write(1, str, strlen(str)); /*Write string to standard output*/
 break;
 case '%':  /* '%' specifier */
