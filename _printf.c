@@ -36,7 +36,7 @@ count += write(1, "%", 1); /*Write char to standard output*/
 break;
 default:  /* Invalid specifier */
 count += write(1, "%", 1);  /* Write '%' chara to standard output */
-count += write(1, &format[idx], 1);  /*write invalid specifier to standard output */
+count += write(1, &format[idx], 1);/*write invalid specifier 2  standard out */
 break;
 }
 }
