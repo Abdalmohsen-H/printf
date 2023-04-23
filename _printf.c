@@ -26,7 +26,8 @@ return (-1);/* Invalid specifier */
 }
 }
 for (; format && format[idx]; idx++) /*loop format chars and print*/
-{if (format[idx] == '%')  /*if it's a format specifier */
+{
+if (format[idx] == '%')  /*if it's a format specifier */
 {idx++;  /* increment to next character after '%' */
 switch (format[idx])  /* get format specifier then act*/
 {
@@ -36,6 +37,8 @@ count += write(1, &c, 1); /*Write char to standard output*/
 break;
 case 's':  /* String specifier */
 str = va_arg(args, char *);/* save it to a variable to write it next*/
+if (!str)
+	str = "(null)";
 count += write(1, str, strlen(str)); /*Write string to standard output*/
 break;
 case '%':  /* '%' specifier */
