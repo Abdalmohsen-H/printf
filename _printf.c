@@ -38,7 +38,8 @@ count += _printnum(args);
 break;
 default:  /* Invalid specifier */
 count += write(1, "%", 1);  /* Write '%' chara to standard output */
-count += write(1, &format[idx], 1);  /* Write invalid char to stdout*/
+/* Write invalid char to stdout*/
+/*count += write(1, &format[idx], 1);*/
 va_end(args);
 return (-1);
 }
@@ -79,8 +80,8 @@ return (count);  /*Return number of characters printed*/
 */
 int _printnum(va_list args)
 {int x = va_arg(args, int);
-unsigned int num;
-int digit, counter = 0;
+unsigned int num, rev_num;
+int counter = 0;
 
 if (x < 0)
 {
@@ -93,11 +94,14 @@ else
 if (num == 0)
 {return (_putchar('0'));
 }
-while (num > 0)
-{
-digit = num % 10;
-counter += _putchar(digit + '0');
-num /= 10;
+while (num > 0) {
+rev_num = rev_num * 10 + num % 10;
+num = num / 10;
+}
+while (rev_num > 0) {
+_putchar(rev_num % 10 + '0');
+counter++;
+rev_num = rev_num / 10;
 }
 return (counter);
 }
