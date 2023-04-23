@@ -30,8 +30,15 @@ case '%':  /* '%' specifier */
 va_arg(args, int);
 count += write(1, "%", 1); /*Write char to standard output*/
 break;
+case 'd':
+count += _printnum(args);
+break;
+case 'i':
+count += _printnum(args);
+break;
 default:  /* Invalid specifier */
 count += write(1, "%", 1);  /* Write '%' chara to standard output */
+count += write(1, &format[idx], 1);  /* Write invalid char to stdout*/
 va_end(args);
 return (-1);
 }
@@ -55,7 +62,7 @@ for (; format && format[idx]; idx++) /*loop format chars and print*/
 {
 if (format[idx] == '%')  /*if it's a format specifier */
 {idx++;  /* increment to next character after '%' */
-count = _printwformat(format, idx, count, args);
+count = _printwformat(format, idx, count, args);/*addation inside func*/
 }
 else  /*if it's a character that doesn't have % before it*/
 {count += write(1, &format[idx], 1);  /* Write character to standard output*/
@@ -63,4 +70,34 @@ else  /*if it's a character that doesn't have % before it*/
 }
 va_end(args);  /*End variable arguments*/
 return (count);  /*Return number of characters printed*/
+}
+/**
+*_printnum - print integers
+* and count printed chars inside it only
+*@args: variable arguments list
+*Return: number of printed chars inside it only
+*/
+int _printnum(va_list args)
+{int x = va_arg(args, int);
+unsigned int num;
+int digit, counter = 0;
+
+if (x < 0)
+{
+counter += _putchar('-');
+num = -x;
+}
+else
+{num = x;
+}
+if (num == 0)
+{return (_putchar('0'));
+}
+while (num > 0)
+{
+digit = num % 10;
+counter += _putchar(digit + '0');
+num /= 10;
+}
+return (counter);
 }
