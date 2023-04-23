@@ -47,6 +47,10 @@ case '%':  /* '%' specifier */
 va_arg(args, int);
 count += write(1, "%", 1); /*Write char to standard output*/
 break;
+default:  /* Invalid specifier */
+count += write(1, "%", 1);  /* Write '%' chara to standard output */
+va_end(args);
+return (-1);
 }
 }
 else  /*if it's a character that doesn't have % before it*/
