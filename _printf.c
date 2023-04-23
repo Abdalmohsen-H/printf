@@ -35,14 +35,12 @@ va_arg(args, int);
 count += write(1, "%", 1); /*Write char to standard output*/
 break;
 default:  /* Invalid specifier */
-count += write(1, "%", 1);  /* Write '%' chara to standard output */
-count += write(1, &format[idx], 1);/*write invalid specifier 2  standard out */
-break;
+write(1, "%", 1);  /* Write '%' chara to standard output */
+return (-1);
 }
 }
 else  /*if it's a character that doesn't have % before it*/
-{
-count += write(1, &format[idx], 1);  /* Write character to standard output*/
+{count += write(1, &format[idx], 1);  /* Write character to standard output*/
 }
 idx++;  /*Move to next character in format*/
 }
