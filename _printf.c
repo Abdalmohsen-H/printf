@@ -39,7 +39,7 @@ break;
 default:  /* Invalid specifier */
 count += write(1, "%", 1);  /* Write '%' chara to standard output */
 /* Write invalid char to stdout*/
-/*count += write(1, &format[idx], 1);*/
+count += write(1, &format[idx], 1);
 va_end(args);
 return (-1);
 }
@@ -94,11 +94,13 @@ else
 if (num == 0)
 {return (_putchar('0'));
 }
-while (num > 0) {
+while (num > 0)
+{
 rev_num = rev_num * 10 + num % 10;
 num = num / 10;
 }
-while (rev_num > 0) {
+while (rev_num > 0)
+{
 _putchar(rev_num % 10 + '0');
 counter++;
 rev_num = rev_num / 10;
