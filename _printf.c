@@ -18,13 +18,15 @@ char *str, *valid_specifiers = "cs%";
 va_start(args, format); /*Initialize variable arguments*/
 if (!format || (format[0] == '%' && format[1] == '\0'))
 	return (-1);
-for (; format && format[idx] && format[idx] == '%'; idx++)
-{/*check if there invalid specifier */
-if (strchr(valid_specifiers, format[idx + 1]) == NULL)
-{va_end(args);
-return (-1);/* Invalid specifier */
-}
-}
+/**
+*for (; format && format[idx] && format[idx] == '%'; idx++)
+*{/-*check if there invalid specifier *-/
+*if (strchr(valid_specifiers, format[idx + 1]) == NULL)
+*{va_end(args);
+*return (-1);/-* Invalid specifier *-/
+*}
+*}
+*/
 for (; format && format[idx]; idx++) /*loop format chars and print*/
 {
 if (format[idx] == '%')  /*if it's a format specifier */
