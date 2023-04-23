@@ -13,7 +13,7 @@ int _printf(const char *format, ...)
 {int idx = 0, count = 0;
 va_list args;  /* Declare variable arguments list */
 char c;
-char *str, *valid_specifiers = "cs%";
+char *str;/*, *valid_specifiers = "cs%";*/
 
 va_start(args, format); /*Initialize variable arguments*/
 if (!format || (format[0] == '%' && format[1] == '\0'))
