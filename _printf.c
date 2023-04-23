@@ -1,6 +1,7 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include <string.h>
+#include "main.h"
 /**
 * _printf - simulate printf task 0
 * @format: character string (zero or more directives)
