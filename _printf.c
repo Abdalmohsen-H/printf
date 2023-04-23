@@ -25,7 +25,8 @@ if (strchr(valid_specifiers, format[idx + 1]) == NULL)
 return (-1);/* Invalid specifier */
 }
 }
-for (; format && format[idx] && format[idx] == '%'; idx++)
+for (; format && format[idx]; idx++) /*loop format chars and print*/
+{if (format[idx] == '%')  /*if it's a format specifier */
 {idx++;  /* increment to next character after '%' */
 switch (format[idx])  /* get format specifier then act*/
 {
@@ -41,6 +42,7 @@ case '%':  /* '%' specifier */
 va_arg(args, int);
 count += write(1, "%", 1); /*Write char to standard output*/
 break;
+}
 }
 else  /*if it's a character that doesn't have % before it*/
 {count += write(1, &format[idx], 1);  /* Write character to standard output*/
