@@ -63,6 +63,11 @@ for (; format && format[idx]; idx++) /*loop format chars and print*/
 {
 if (format[idx] == '%')  /*if it's a format specifier */
 {idx++;  /* increment to next character after '%' */
+if (format[idx] == '\0') /*if % is last char and no other % before it*/
+{
+va_end(args);
+return (-1);
+}
 count = _printwformat(format, idx, count, args);/*addation inside func*/
 }
 else  /*if it's a character that doesn't have % before it*/
