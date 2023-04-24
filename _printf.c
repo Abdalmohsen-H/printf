@@ -18,13 +18,13 @@ char *str;/*, *valid_specifiers = "cs%";*/
 if (format[idx] == '%')
 {
 int c = format[idx];
-_putchar(c);
+putchar(c);
 count++;
 }
 if (format[idx] == 'c')
 {
 int c = va_arg(args, int);
-_putchar(c);
+putchar(c);
 count++;
 }
 if (format[idx] == 's')
@@ -35,7 +35,7 @@ if (!str)
 {str = "(null)";
 }
 for (z = 0; str[z]; z++)
-{_putchar(str[z]);
+{putchar(str[z]);
 }
 count += z;
 }
@@ -90,14 +90,14 @@ int counter = 0;
 
 if (x < 0)
 {
-counter += _putchar('-');
+counter += putchar('-');
 num = -x;
 }
 else
 {num = x;
 }
 if (num == 0)
-{return (_putchar('0'));
+{return (putchar('0'));
 }
 while (num > 0)
 {
@@ -106,7 +106,7 @@ num = num / 10;
 }
 while (rev_num > 0)
 {
-_putchar(rev_num % 10 + '0');
+putchar(rev_num % 10 + '0');
 counter++;
 rev_num = rev_num / 10;
 }
