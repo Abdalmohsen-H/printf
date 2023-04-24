@@ -59,7 +59,7 @@ va_list args;  /* Declare variable arguments list */
 
 va_start(args, format); /*Initialize variable arguments*/
 if (!format || (format[0] == '%' && format[1] == '\0'))
-	return (-1);
+return (-1);
 for (; format && format[idx]; idx++) /*loop format chars and print*/
 {
 if (format[idx] == '%')  /*if it's a format specifier */
