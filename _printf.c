@@ -45,9 +45,10 @@ case 'i':
 count += _printnum(args);
 break;
 default:  /* Invalid specifier */
-count += write(1, "%", 1);  /* Write '%' chara to standard output */
+_putchar('%');/* Write '%' chara to standard output */
 /* Write invalid char to stdout*/
-count += write(1, &format[idx], 1);
+ch = va_arg(args, int);
+_putchar(ch);
 va_end(args);
 return (-1);
 }
