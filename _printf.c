@@ -24,7 +24,7 @@ count++;
 if (format[idx] == 'c')
 {
 int c = va_arg(args, int);
-count += write(1, '%';, 1); /*Write char to standard output*/
+count += write(1, &c, 1); /*Write char to standard output*/
 count++;
 }
 if (format[idx] == 's')
@@ -35,8 +35,9 @@ if (!str)
 {str = "(null)";
 }
 for (z = 0; str[z]; z++)
-{count += write(1, str[z], 1); /*Write string to standard output*/;
+{
 }
+count += write(1, str, z); /*Write string to standard output*/
 count += z;
 }
 if (format[idx] == 'd' || format[idx] == 'i')
