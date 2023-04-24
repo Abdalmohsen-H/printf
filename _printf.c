@@ -12,36 +12,36 @@
 * (excluding null byte '\0' used at end of strings)
 */
 int _printwformat(const char *format, int idx, int count, va_list args)
-{char c;
+{/* char c;*/
 char *str;/*, *valid_specifiers = "cs%";*/
-switch (format[idx])  /* get format specifier then act*/
+
+if (format[idx] == '%')
 {
-case 'c':  /* Character specifier */
-c = va_arg(args, int);/* must save it to a variable to get address next*/
-count += write(1, &c, 1); /*Write char to standard output*/
-break;
-case 's':  /* String specifier */
-str = va_arg(args, char *);/* save it to a variable to write it next*/
+int c = format[idx];
+_putchar(c);
+count++;
+}
+if (format[idx] == 'c')
+{
+int c = va_arg(args, int);
+_putchar(c);
+count++;
+}
+if (format[idx] == 's')
+{
+int z = 0;
+str = va_arg(args, char *);
 if (!str)
-	str = "(null)";
-count += write(1, str, strlen(str)); /*Write string to standard output*/
-break;
-case '%':  /* '%' specifier */
-va_arg(args, int);
-count += write(1, "%", 1); /*Write char to standard output*/
-break;
-case 'd':
+{str = "(null)";
+}
+for (z = 0; str[z]; z++)
+{_putchar(str[z]);
+}
+count += z;
+}
+if (format[idx] == 'd' || format[idx] == 'i')
+{
 count += _printnum(args);
-break;
-case 'i':
-count += _printnum(args);
-break;
-default:  /* Invalid specifier */
-count += write(1, "%", 1);  /* Write '%' chara to standard output */
-/* Write invalid char to stdout*/
-count += write(1, &format[idx], 1);
-va_end(args);
-return (-1);
 }
 return (count);
 }
@@ -59,13 +59,11 @@ va_list args;  /* Declare variable arguments list */
 va_start(args, format); /*Initialize variable arguments*/
 if (!format || (format[0] == '%' && format[1] == '\0'))
 	return (-1);
-if (format[0] == '%' && format[1] == ' ' && !format[2])
-	return (-1);
 for (; format && format[idx]; idx++) /*loop format chars and print*/
 {
 if (format[idx] == '%')  /*if it's a format specifier */
 {idx++;  /* increment to next character after '%' */
-if (format[idx] == '\0')
+if (format[idx] == '\0' || (format[idx] == ' ' && !format[idx + 1]))
 {/*if % is last char and no other % before it or it just "% "*/
 va_end(args);
 return (-1);
