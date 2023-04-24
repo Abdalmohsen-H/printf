@@ -18,13 +18,13 @@ char *str;/*, *valid_specifiers = "cs%";*/
 if (format[idx] == '%')
 {
 int c = format[idx];
-_putchar(c);
+_putchar(c);/* prints second '%' from "%%" */
 count++;
 }
 if (format[idx] == 'c')
 {
 int c = va_arg(args, int);
-_putchar(c);
+count += write(1, '%';, 1); /*Write char to standard output*/
 count++;
 }
 if (format[idx] == 's')
@@ -33,10 +33,9 @@ int z = 0;
 str = va_arg(args, char *);
 if (!str)
 {str = "(null)";
-return (-1);
 }
 for (z = 0; str[z]; z++)
-{_putchar(str[z]);
+{count += write(1, str[z], 1); /*Write string to standard output*/;
 }
 count += z;
 }
