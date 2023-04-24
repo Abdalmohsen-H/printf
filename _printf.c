@@ -14,22 +14,23 @@
 int _printwformat(const char *format, int idx, int count, va_list args)
 {/* char c;*/
 char *str;/*, *valid_specifiers = "cs%";*/
+int c, z;
 
 if (format[idx] == '%')
 {
-int c = format[idx];
+c = format[idx];
 _putchar(c);
 count++;
 }
-if (format[idx] == 'c')
+else if (format[idx] == 'c')
 {
-int c = va_arg(args, int);
+c = va_arg(args, int);
 _putchar(c);
 count++;
 }
-if (format[idx] == 's')
+else if (format[idx] == 's')
 {
-int z = 0;
+z = 0;
 str = va_arg(args, char *);
 if (!str)
 {str = "(null)";
@@ -39,9 +40,16 @@ for (z = 0; str[z]; z++)
 }
 count += z;
 }
-if (format[idx] == 'd' || format[idx] == 'i')
+else if (format[idx] == 'd' || format[idx] == 'i')
 {
 count += _printnum(args);
+}
+else
+{
+count += 2;
+_putchar('%');
+c = va_arg(args, int);
+_putchar(c);
 }
 return (count);
 }
