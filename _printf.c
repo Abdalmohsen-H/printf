@@ -32,7 +32,7 @@ if (format[idx] == 's')
 int z = 0;
 str = va_arg(args, char *);
 if (!str)
-{str = "(null)";
+{str = "(nil)";
 }
 for (z = 0; str[z]; z++)
 {_putchar(str[z]);
