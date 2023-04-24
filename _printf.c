@@ -33,6 +33,7 @@ int z = 0;
 str = va_arg(args, char *);
 if (!str)
 {str = "(null)";
+return (-1);
 }
 for (z = 0; str[z]; z++)
 {_putchar(str[z]);
