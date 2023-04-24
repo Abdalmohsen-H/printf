@@ -71,7 +71,9 @@ return (-1);
 count = _printwformat(format, idx, count, args);/*addation inside func*/
 }
 else  /*if it's a character that doesn't have % before it*/
-{count += write(1, &format[idx], 1);  /* Write character to standard output*/
+{int c = va_arg(args, int);
+_putchar(c);/* Write character to standard output*/
+count++;
 }
 }
 va_end(args);  /*End variable arguments*/
