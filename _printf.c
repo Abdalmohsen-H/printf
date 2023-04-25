@@ -122,7 +122,7 @@ return (counter);
 /**
 *print_binary - print binary of decimal input
 * and count printed chars inside it only
-*@dnum: integer input from variable arguments list
+*@x: integer input from variable arguments list
 *Return: number of printed chars inside it only
 */
 int print_binary(unsigned int dnum)
