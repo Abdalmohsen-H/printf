@@ -28,6 +28,6 @@
 ### This function writes a char to stdout
 ### c: Character to be printed
 ### Return: 1 on success, else -1
-==============================================
+=============================================
 ## main.h
 ### this is the main header file that includes the liberaries and all the prototypes and arguments 
