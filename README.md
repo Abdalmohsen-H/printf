@@ -20,7 +20,7 @@
 ### Return: num. of printed characters (excluding null byte '\0' used at end of strings)
 
 ## _printf
-### simulate printf task 0
+### Simulate printf task 0
 ### format: character string (zero or more directives)
 ### Return: num. of printed characters (excluding null byte '\0' used at end of strings)
 =============================================
