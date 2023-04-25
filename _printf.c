@@ -84,8 +84,6 @@ count++;
 va_end(args);  /*End variable arguments*/
 return (count);  /*Return number of characters printed*/
 }
-<<<<<<< HEAD
-=======
 /**
 *print_integer - print integers
 * and count printed chars inside it only
@@ -143,4 +141,3 @@ _putchar((num % 2) + '0');
 counter++;
 return (counter);
 }
->>>>>>> 85766a7501c82abed1bb097942e944795ba7a4db
