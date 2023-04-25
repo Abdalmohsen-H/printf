@@ -106,7 +106,7 @@ else
 if (num == 0)
 {return (_putchar('0'));
 }
-while (num/10)/*if more than 2 digits*/
+while (num / 10)/*if more than 2 digits*/
 /*get most left number from decimal input*/
 {
 _putchar((num % 10) + '0');
