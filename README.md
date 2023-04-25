@@ -12,7 +12,8 @@
 ## _printf.c
 ### this includes two functions
 
-## _printwformat - rint with format
+## _printwformat
+### Rint with format
 ### format: character string (zero or more directives)
 ### idx: arg index
 ### count: printed char counter
