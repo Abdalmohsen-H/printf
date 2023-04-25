@@ -1,4 +1,4 @@
-# 0x11. C - printf
+# 0x11. C - printf task
 
 ## _print_binary.c 
 ### This is a function that print binary of decimal input and count printed chars inside it only
