@@ -12,9 +12,9 @@
 * (excluding null byte '\0' used at end of strings)
 */
 int _printwformat(const char *format, int idx, int count, va_list args)
-{/* char c;*/
-char *str;/*, *valid_specifiers = "cs%";*/
-int c, z;
+{unsigned int dnum;
+char *str;/*, *valid_specifiers = "cs%idb";*/
+int c, z, x;
 
 if (format[idx] == '%')
 {c = format[idx];
@@ -37,12 +37,12 @@ for (z = 0; str[z]; z++)
 count += z;
 }
 else if (format[idx] == 'd' || format[idx] == 'i')
-{int x = va_arg(args, int);
+{x = va_arg(args, int);
 count += print_integer(x);
 }
 else if (format[idx] == 'b')
-{int x = va_arg(args, int);
-count += print_binary(x);
+{dnum = va_arg(args, int);
+count += print_binary(dnum);
 }
 else
 {count += 2;
@@ -123,19 +123,10 @@ return (counter);
 *@x: integer input from variable arguments list
 *Return: number of printed chars inside it only
 */
-int print_binary(int x)
-{unsigned int num;
+int print_binary(unsigned int dnum)
+{unsigned int num = dnum;
 int counter = 0;
 
-if (x < 0)
-{
-_putchar('-');
-counter++;
-num = -1 * x;
-}
-else
-{num = x;
-}
 if (num == 0)
 {counter++;
 return (_putchar('0'));
