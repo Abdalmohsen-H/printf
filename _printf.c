@@ -107,12 +107,11 @@ if (num == 0)
 {return (_putchar('0'));
 }
 while (num / 10)/*if more than 2 digits*/
-/*get most left number from decimal input*/
-{
-_putchar((num % 10) + '0');
-counter++;
+{/*we will use recursion to print*/
+/*the most left digit from input first*/
+counter += print_int(num / 10);
 }
-/*now we only have one digitlet's handle it*/
+/*now we only have one digit let's handle it*/
 _putchar((num % 10) + '0');
 counter++;
 return (counter);
