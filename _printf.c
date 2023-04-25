@@ -77,38 +77,3 @@ else  /*if it's a character that doesn't have % before it*/
 va_end(args);  /*End variable arguments*/
 return (count);  /*Return number of characters printed*/
 }
-/**
-*_printnum - print integers
-* and count printed chars inside it only
-*@args: variable arguments list
-*Return: number of printed chars inside it only
-*/
-int _printnum(va_list args)
-{int x = va_arg(args, int);
-unsigned int num, rev_num;
-int counter = 0;
-
-if (x < 0)
-{
-counter += _putchar('-');
-num = -x;
-}
-else
-{num = x;
-}
-if (num == 0)
-{return (_putchar('0'));
-}
-while (num > 0)
-{
-rev_num = rev_num * 10 + num % 10;
-num = num / 10;
-}
-while (rev_num > 0)
-{
-_putchar(rev_num % 10 + '0');
-counter++;
-rev_num = rev_num / 10;
-}
-return (counter);
-}
