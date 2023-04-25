@@ -96,7 +96,8 @@ int counter = 0;
 
 if (x < 0)
 {
-counter += _putchar('-');
+_putchar('-');
+counter++;
 num = -1 * x;
 }
 else
@@ -128,7 +129,8 @@ int counter = 0;
 
 if (x < 0)
 {
-counter += _putchar('-');
+_putchar('-');
+counter++;
 num = -1 * x;
 }
 else
