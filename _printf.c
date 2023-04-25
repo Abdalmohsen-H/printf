@@ -93,13 +93,13 @@ return (count);  /*Return number of characters printed*/
 */
 int _printnum(va_list args)
 {int x = va_arg(args, int);
-unsigned int num, rev_num;
+unsigned int num;
 int counter = 0;
 
 if (x < 0)
 {
 counter += _putchar('-');
-num = -x;
+num = -1 * x;
 }
 else
 {num = x;
@@ -107,16 +107,14 @@ else
 if (num == 0)
 {return (_putchar('0'));
 }
-while (num > 0)
+while (num/10)/*if more than 2 digits*/
+/*get most left number from decimal input*/
 {
-rev_num = rev_num * 10 + num % 10;
-num = num / 10;
-}
-while (rev_num > 0)
-{
-_putchar(rev_num % 10 + '0');
+_putchar((num % 10) + '0');
 counter++;
-rev_num = rev_num / 10;
 }
+/*now we only have one digitlet's handle it*/
+_putchar((num % 10) + '0');
+counter++;
 return (counter);
 }
