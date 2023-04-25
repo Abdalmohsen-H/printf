@@ -42,7 +42,7 @@ count += z;
 }
 else if (format[idx] == 'd' || format[idx] == 'i')
 {
-count += _printnum(args);
+count += print_integer(args);
 }
 else
 {
@@ -91,7 +91,7 @@ return (count);  /*Return number of characters printed*/
 *@args: variable arguments list
 *Return: number of printed chars inside it only
 */
-int _printnum(va_list args)
+int print_integer(va_list args)
 {int x = va_arg(args, int);
 unsigned int num, counter = 0;
 
@@ -109,7 +109,7 @@ if (num == 0)
 while (num / 10)/*if more than 2 digits*/
 {/*we will use recursion to print*/
 /*the most left digit from input first*/
-counter += print_int(num / 10);
+counter += print_integer(num / 10);
 }
 /*now we only have one digit let's handle it*/
 _putchar((num % 10) + '0');
