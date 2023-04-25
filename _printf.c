@@ -48,8 +48,7 @@ else
 {
 count += 2;
 _putchar('%');
-c = va_arg(args, int);
-_putchar(c);
+_putchar(format[idx]);
 }
 return (count);
 }
