@@ -93,8 +93,7 @@ return (count);  /*Return number of characters printed*/
 */
 int _printnum(va_list args)
 {int x = va_arg(args, int);
-unsigned int num;
-int counter = 0;
+unsigned int num, counter = 0;
 
 if (x < 0)
 {
