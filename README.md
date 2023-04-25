@@ -30,4 +30,4 @@
 ### Return: 1 on success, else -1
 =============================================
 ## main.h
-### this is the main header file that includes the liberaries and all the prototypes and arguments 
+### This is the main header file that includes the liberaries and all the prototypes and arguments 
