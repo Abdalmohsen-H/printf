@@ -4,6 +4,6 @@
 ### Return: number of printed chars inside it only
 
 ## print_integer
-### print integers
+### this function is used to print integers ad it's named
 ### x: integer input from variable arguments list
 ### Return: number of printed chars inside it only
