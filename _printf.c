@@ -3,7 +3,7 @@
 #include <string.h>
 #include "main.h"
 /**
-* _printwformat - rint with format
+* _printwformat - Hepler function, print with format
 * @format: character string (zero or more directives)
 * @idx: arg index
 * @count: printed char counter
