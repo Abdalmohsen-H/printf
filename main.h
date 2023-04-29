@@ -11,5 +11,4 @@ int _putchar(char c);
 int _printwformat(const char *format, int idx, int count, va_list args);
 int print_integer(int x);
 int print_binary(unsigned int dnum);
-int printwcap_s(const char *format, int idx, va_list args);
 #endif
