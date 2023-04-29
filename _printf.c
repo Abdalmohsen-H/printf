@@ -30,10 +30,9 @@ else if (format[idx] == 's')
 {z = 0;
 str = va_arg(args, char *);
 if (!str)
-{str = "(null)";
-}
+	str = "(null)";
 for (z = 0; str[z]; z++)
-_putchar(str[z]);
+	_putchar(str[z]);
 count += z;
 }
 else if (format[idx] == 'd' || format[idx] == 'i')
@@ -44,6 +43,8 @@ else if (format[idx] == 'b')
 {dnum = va_arg(args, int);
 count += print_binary(dnum);
 }
+else if (format[idx] == 'S')
+	count += printwcap_s(format, idx, args);
 else
 {count += 2;
 _putchar('%');
